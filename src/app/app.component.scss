@@ -1,8 +1,22 @@
 .hidenav {
-    display: none;
-  }
-      
+  display: none;
+}
+
 .mynav:hover + .hidenav {
-    display: block;
-    color: red;
-  }
+  display: block;
+  color: red;
+}
+.navcolumn {
+  flex: 75%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+.navcolumnheader {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+  cursor: pointer;
+}
+ul.nav-pills {
+  position: relative;
+}

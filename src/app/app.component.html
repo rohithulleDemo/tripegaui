@@ -1,19 +1,4 @@
-<!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-  <a class="navbar-brand" href="#">Tripega</a>
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-      <a class="nav-link" href="javascript:void(0)">Destination</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="javascript:void(0)">Planning</a>
-    </li>
-  </ul>  
-  <form class="form-inline" action="/action_page.php" >
-    <input class="form-control mr-sm-2" type="text" placeholder="Search">
-    <button class="btn btn-success" type="submit">Search</button>
-  </form>
-</nav> -->
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="javascript:void(0)">Tripega</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -21,8 +6,8 @@
     </button>
     <div class="collapse navbar-collapse" id="mynavbar">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link mynav" data-bs-toggle="modal" data-bs-target="#myModal">Destination</a>
+        <li class="nav-item mynav">
+          <a class="nav-link" data-bs-toggle="modal" data-bs-target="#myModal">Destination</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="javascript:void(0)">Planning</a>
@@ -46,11 +31,8 @@
     <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
     <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
     <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
   </div>
-  
+
   <!-- The slideshow/carousel -->
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -74,29 +56,8 @@
         <p>We had such a great time in India!</p>
       </div>
     </div>
-    <div class="carousel-item active">
-      <img src="/assets/images/page4.jpg" alt="india" class="d-block" style="width:100%;height:50em;">
-      <div class="carousel-caption">
-        <h3>Palace</h3>
-        <p>We had such a great time in India!</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="/assets/images/page5.jpg" alt="india" class="d-block" style="width:100%;height:50em;">
-      <div class="carousel-caption">
-        <h3>Palace</h3>
-        <p>We had such a great time in India!</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="/assets/images/page6.jpg" alt="india" class="d-block" style="width:100%;height:50em;">
-      <div class="carousel-caption">
-        <h3>Palace</h3>
-        <p>We had such a great time in India!</p>
-      </div>
-    </div>
   </div>
-  
+
   <!-- Left and right controls/icons -->
   <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
     <span class="carousel-control-prev-icon"></span>
@@ -110,21 +71,83 @@
   <h3>Carousel Example</h3>
   <p>The following example shows how to create a basic carousel with indicators and controls.</p>
 </div>
-<div class="hidenav">Test</div>
+<div class="">Test</div>
 <!-- The Modal -->
-<div class="modal hidenav" id="myModal">
-  <div class="modal-dialog modal-xl">
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-xl" data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
+      <!-- <div class="modal-header">
         <h4 class="modal-title">Modal Heading</h4>
-        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
-      </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div> -->
 
       <!-- Modal body -->
-      <div class="modal-body">
-        Modal body..
+      <div class="modal-body" style="height: 50em;">
+        <div class="row">
+          <div class="col-3 flex-column">
+            <nav class="">
+                <ul class="navbar-nav list-group">
+                  <li class="list-group-item list-group-item-action active">
+                    <a class="nav-link" href="#section1">North India</a>
+                  </li>
+                  <li class="list-group-item list-group-item-action">
+                    <a class="nav-link" href="#section2">South India</a>
+                  </li>
+                  <li class="list-group-item list-group-item-action">
+                    <a class="nav-link" href="#section3">West India</a>
+                  </li>
+                  <li class="list-group-item list-group-item-action">
+                    <a class="nav-link" href="#section4">East India</a>
+                  </li>
+                  <li class="list-group-item list-group-item-action">
+                    <a class="nav-link" href="#section5">Union Territories</a>
+                  </li>
+                </ul>
+            </nav>
+          </div>
+          <div class="col-9" style="overflow: auto;height: 45em;">
+            <div id="section1" class="container-fluid">
+              <h1>North India</h1>
+              @for (state of northStates; track state) {
+              <div class="p-2">{{ state }}</div>
+              }
+            </div>
+
+            <div id="section2" class="container-fluid">
+              <h1>South India</h1>
+              @for (state of southStates; track state) {
+              <div class="p-2">{{ state }}</div>
+              }
+            </div>
+
+            <div id="section3" class="container-fluid">
+              <h1>West India</h1>
+              @for (state of westStates; track state) {
+              <div class="p-2">{{ state }}</div>
+              }
+            </div>
+            <div id="section4" class="container-fluid">
+              <h1>East India</h1>
+              @for (state of eastStates; track state) {
+              <div class="p-2">{{ state }}</div>
+              }
+            </div>
+            <div id="section5" class="container-fluid">
+              <h1>Union Territories</h1>
+              @for (state of utStates; track state) {
+              <div class="p-2">{{ state }}</div>
+              }
+            </div>
+          </div>
+        </div>
+        <!-- <div class="btn-group-vertical">
+          <button type="button" class="btn btn-light">North India</button>
+          <button type="button" class="btn btn-light">South India</button>
+          <button type="button" class="btn btn-light">East India</button>
+          <button type="button" class="btn btn-light">West India</button>
+        </div> -->
       </div>
 
       <!-- Modal footer -->
