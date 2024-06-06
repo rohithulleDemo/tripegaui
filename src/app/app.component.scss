@@ -1,0 +1,8 @@
+.hidenav {
+    display: none;
+  }
+      
+.mynav:hover + .hidenav {
+    display: block;
+    color: red;
+  }
