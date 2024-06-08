@@ -74,7 +74,7 @@
 <div class="">Test</div>
 <!-- The Modal -->
 <div class="modal" id="myModal">
-  <div class="modal-dialog modal-xl" data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
 
       <!-- Modal Header -->
@@ -84,70 +84,90 @@
       </div> -->
 
       <!-- Modal body -->
-      <div class="modal-body" style="height: 50em;">
+      <div class="modal-body">
         <div class="row">
           <div class="col-3 flex-column">
             <nav class="">
-                <ul class="navbar-nav list-group">
-                  <li class="list-group-item list-group-item-action active">
-                    <a class="nav-link" href="#section1">North India</a>
-                  </li>
-                  <li class="list-group-item list-group-item-action">
-                    <a class="nav-link" href="#section2">South India</a>
-                  </li>
-                  <li class="list-group-item list-group-item-action">
-                    <a class="nav-link" href="#section3">West India</a>
-                  </li>
-                  <li class="list-group-item list-group-item-action">
-                    <a class="nav-link" href="#section4">East India</a>
-                  </li>
-                  <li class="list-group-item list-group-item-action">
-                    <a class="nav-link" href="#section5">Union Territories</a>
-                  </li>
-                </ul>
+              <ul class="list-group">
+                @for(grp of groupStates; track grp;let index = $index){
+                <li class="list-group-item list-group-item-action active"
+                  (click)="activateClass(index); enableStateList(grp)"
+                  [ngClass]="{'active': index === selectedGroupIndex}">
+                  <a class="nav-link" href="#section{{index}}">{{grp}}</a>
+                </li>
+                }
+              </ul>
             </nav>
           </div>
-          <div class="col-9" style="overflow: auto;height: 45em;">
-            <div id="section1" class="container-fluid">
+
+          <div class="col-9">
+            @if(isNorthList){<div class="row" id="section0">
               <h1>North India</h1>
-              @for (state of northStates; track state) {
-              <div class="p-2">{{ state }}</div>
-              }
+              <div class="col-sm-6">
+                @for (state of northStates; track state) {
+                <div class="p-2">{{ state }}</div>
+                }
+              </div>
+              <div class="col-sm-6">
+                <img src="/assets/images/northNav.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+                  height="236">
+              </div>
             </div>
-
-            <div id="section2" class="container-fluid">
+            }
+            @else if(isSouthList){<div class="row" id="section1">
               <h1>South India</h1>
-              @for (state of southStates; track state) {
-              <div class="p-2">{{ state }}</div>
-              }
+              <div class="col-sm-6">
+                @for (state of southStates; track state) {
+                <div class="p-2">{{ state }}</div>
+                }
+              </div>
+              <div class="col-sm-6">
+                <img src="/assets/images/northNav.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+                  height="236">
+              </div>
             </div>
-
-            <div id="section3" class="container-fluid">
+            }
+            @else if(isWestList){<div class="row" id="section2">
               <h1>West India</h1>
-              @for (state of westStates; track state) {
-              <div class="p-2">{{ state }}</div>
-              }
+              <div class="col-sm-6">
+                @for (state of westStates; track state) {
+                <div class="p-2">{{ state }}</div>
+                }
+              </div>
+              <div class="col-sm-6">
+                <img src="/assets/images/northNav.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+                  height="236">
+              </div>
             </div>
-            <div id="section4" class="container-fluid">
+            }
+            @else if(isEastList){<div class="row" id="section3">
               <h1>East India</h1>
-              @for (state of eastStates; track state) {
-              <div class="p-2">{{ state }}</div>
-              }
+              <div class="col-sm-6">
+                @for (state of eastStates; track state) {
+                <div class="p-2">{{ state }}</div>
+                }
+              </div>
+              <div class="col-sm-6">
+                <img src="/assets/images/northNav.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+                  height="236">
+              </div>
             </div>
-            <div id="section5" class="container-fluid">
+            }
+            @else if(isUTList){<div class="row" id="section4">
               <h1>Union Territories</h1>
-              @for (state of utStates; track state) {
-              <div class="p-2">{{ state }}</div>
-              }
+              <div class="col-sm-6">
+                @for (state of utStates; track state) {
+                <div class="p-2">{{ state }}</div>
+                }
+              </div>
+              <div class="col-sm-6">
+                <img src="/assets/images/northNav.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+                  height="236">
+              </div>
             </div>
+            }
           </div>
         </div>
-        <!-- <div class="btn-group-vertical">
-          <button type="button" class="btn btn-light">North India</button>
-          <button type="button" class="btn btn-light">South India</button>
-          <button type="button" class="btn btn-light">East India</button>
-          <button type="button" class="btn btn-light">West India</button>
-        </div> -->
       </div>
 
       <!-- Modal footer -->
