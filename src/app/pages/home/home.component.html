@@ -1,0 +1,156 @@
+<app-shared-main-nav></app-shared-main-nav>
+<!-- Carousel -->
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    </div>
+  
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/assets/images/page1.jpg" alt="india" class="d-block" style="width:100%;height:50em;">
+        <div class="carousel-caption">
+          <h3>Palace</h3>
+          <p>We had such a great time in India!</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/images/page2.jpg" alt="india" class="d-block" style="width:100%;height:50em;">
+        <div class="carousel-caption">
+          <h3>Great India</h3>
+          <p>We had such a great time in India!</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/images/page3.jpg" alt="india" class="d-block" style="width:100%;height:50em;">
+        <div class="carousel-caption">
+          <h3>Taj</h3>
+          <p>We had such a great time in India!</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+  
+  <div class="container-fluid mt-3">
+    <h3>Carousel Example</h3>
+    <p>The following example shows how to create a basic carousel with indicators and controls.</p>
+  </div>
+  <div class="">Test</div>
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <!-- <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div> -->
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-3 flex-column">
+              <nav class="">
+                <ul class="list-group">
+                  @for(grp of groupStates; track grp;let index = $index){
+                  <li class="list-group-item list-group-item-action active"
+                    (click)="activateClass(index); enableStateList(grp)"
+                    [ngClass]="{'active': index === selectedGroupIndex}">
+                    <a class="nav-link">{{grp}}</a>
+                  </li>
+                  }
+                </ul>
+              </nav>
+            </div>
+  
+            <div class="col-9">
+              @if(isNorthList){<div class="row" id="northindia">
+                <h1>North India</h1>
+                <div class="col-sm-6">
+                  @for (state of northStates; track state) {
+                  <div class="p-2"><a href="destination/state">{{ state }}</a></div>
+                  }
+                </div>
+                <div class="col-sm-6">
+                  <img src="/assets/images/northNav.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+                    height="236">
+                </div>
+              </div>
+              }
+              @else if(isSouthList){<div class="row" id="southindia">
+                <h1>South India</h1>
+                <div class="col-sm-6">
+                  @for (state of southStates; track state) {
+                  <div class="p-2">{{ state }}</div>
+                  }
+                </div>
+                <div class="col-sm-6">
+                  <img src="/assets/images/northNav.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+                    height="236">
+                </div>
+              </div>
+              }
+              @else if(isWestList){<div class="row" id="westindia">
+                <h1>West India</h1>
+                <div class="col-sm-6">
+                  @for (state of westStates; track state) {
+                  <div class="p-2">{{ state }}</div>
+                  }
+                </div>
+                <div class="col-sm-6">
+                  <img src="/assets/images/northNav.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+                    height="236">
+                </div>
+              </div>
+              }
+              @else if(isEastList){<div class="row" id="eastindia">
+                <h1>East India</h1>
+                <div class="col-sm-6">
+                  @for (state of eastStates; track state) {
+                  <div class="p-2">{{ state }}</div>
+                  }
+                </div>
+                <div class="col-sm-6">
+                  <img src="/assets/images/northNav.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+                    height="236">
+                </div>
+              </div>
+              }
+              @else if(isUTList){<div class="row" id="union-territories">
+                <h1>Union Territories</h1>
+                <div class="col-sm-6">
+                  @for (state of utStates; track state) {
+                  <div class="p-2"><a routerLink="destination/state" routerLinkActive="active-link" (click)="onStateClick(state)">{{ state }}</a></div>
+                  }
+                </div>
+                <div class="col-sm-6">
+                  <img src="/assets/images/northNav.jpg" class="img-thumbnail" alt="Cinque Terre" width="304"
+                    height="236">
+                </div>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+  
+        <!-- Modal footer -->
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div> -->
+  
+      </div>
+    </div>
+  </div>
